@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assignee to Reviewer
-        uses: guillaumevalverde/assignee-to-reviewer-action@v1.0.12
+        uses: guillaumevalverde/assignee-to-reviewer-action@v1.0.13
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
