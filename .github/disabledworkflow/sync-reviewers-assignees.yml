@@ -10,4 +10,3 @@ jobs:
       - uses: rubeus90/auto-sync-reviewer-assignee@v1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          
