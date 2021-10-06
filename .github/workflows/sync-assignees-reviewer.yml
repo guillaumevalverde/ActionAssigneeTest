@@ -7,7 +7,7 @@ jobs:
   assignee_to_reviewer:
     runs-on: ubuntu-latest
     steps:
-      - name: Assignee to Reviewer
+      - name: Check milestone
         uses: guillaumevalverde/check_milestone_action@v1.0.0
         
         env:
