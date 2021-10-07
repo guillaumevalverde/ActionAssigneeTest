@@ -1,8 +1,6 @@
 name: Check milestone is set up.
 on:
-  pull_request:
-    types: [opened]
-  issues:
+ issues:
     types: [milestoned, demilestoned]
     
 
