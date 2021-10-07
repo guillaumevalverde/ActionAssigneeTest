@@ -1,7 +1,7 @@
 name: Check milestone is set up.
 on:
-  issues:
-    types: [opened, edited, milestoned, demilestoned]
+  pull_request:
+    types: [opened, edited]
 
 jobs:
   check_milestone:
