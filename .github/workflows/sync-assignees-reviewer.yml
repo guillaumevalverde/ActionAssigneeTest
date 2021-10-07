@@ -1,7 +1,7 @@
 name: Check milestone is set up.
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, review_requested]
 
 jobs:
   check_milestone:
