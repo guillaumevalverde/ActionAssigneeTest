@@ -1,10 +1,13 @@
-name: Assign reviewers based on assignees
+name: Check milestone is set up.
 on:
   pull_request:
-    types: [review_requested, review_request_removed]
+    types: [opened]
+  issues:
+    types: [milestoned, demilestoned]
+    
 
 jobs:
-  assignee_to_reviewer:
+  check_milestone:
     runs-on: ubuntu-latest
     steps:
       - name: Check milestone
