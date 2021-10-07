@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check milestone
-        uses: guillaumevalverde/check_milestone_action@v1.0.3
+        uses: guillaumevalverde/check_milestone_action@v1.0.4
         
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
