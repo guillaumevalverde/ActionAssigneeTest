@@ -31,4 +31,5 @@ jobs:
            echo "Hello ${{ github.event.inputs.name }}" \
            echo "Hello ${{ secrets.PWD_GVE }}" \
            echo "Hello ${{ secrets.GVE }}" \
-           echo "Hello ${{ github.event }}"
+           echo "Hello ${{ github.event.inputs }}" \
+           git branch
