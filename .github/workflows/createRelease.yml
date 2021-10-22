@@ -23,6 +23,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
       # Runs a single command using the runners shell
       - name: Send greeting
         run: |
