@@ -20,8 +20,6 @@ getMilestone() {
     -H "${API_HEADER}" \
     -X "GET" \
 "https://api.github.com/repos/${GITHUB_REPOSITORY}/milestones"`
-milestone=`echo "${milestones}" | jq '.title'`
-echo ${milestone}
 }
 
 milestones=$(getMilestone)
