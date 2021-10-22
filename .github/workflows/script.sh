@@ -1,17 +1,13 @@
 #!/bin/bash
 set -eu
 
-if [[ -z "$GITHUB_TOKEN" ]]; then
-  echo "Set the GITHUB_TOKEN env variable."
-  exit 1
-fi
-
-if [ $# -lt 1 ]
+if [ $# -lt 2 ]
   then
     echo "Missing arguments.\nRequired arguments are [Next release]"
     exit 1
 fi
 
+GITHUB_TOKEN=$2
 API_HEADER="Accept: application/vnd.github.v3+json; application/vnd.github.antiope-preview+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
