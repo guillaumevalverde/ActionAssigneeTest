@@ -8,11 +8,9 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      next_release:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
+        description: 'next release:'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -28,7 +26,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send greeting
         run: |
-        echo "Hello ${{ github.event.inputs.name }}"
-        echo "Hello ${{ secret.PWD_GVE }}"
-        echo "Hello ${{ secret.GVE }}"
+           echo "Hello ${{ github.event.inputs.name }}"
+           echo "Hello ${{ secrets.PWD_GVE }}"
+           echo "Hello ${{ secrets.GVE }}"
+           echo "Hello ${{ github.event.inputs }}"
+           echo "${{ github.repository }}
+           ./script.sh
 
