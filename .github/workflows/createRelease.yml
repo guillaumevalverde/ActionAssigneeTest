@@ -40,5 +40,5 @@ jobs:
       - name: second
         run: |
             chmod +x ./.github/workflows/script_second.sh
-            ./.github/workflows/script_second.sh $new_release
+            ./.github/workflows/script_second.sh $NEW_RELEASE
 

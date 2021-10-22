@@ -26,8 +26,12 @@ milestones=$(getMilestone)
 new_release=`echo "${milestones}" | jq '.[-1].title'`
 last_release=`echo "${milestones}" | jq '.[-2].title'`
 
+echo "NEW_RELEASE=$new_release" >> $GITHUB_ENV
+
 echo "new_release :"
+
 echo "${new_release}"
+
 
 echo "last_release :"
 echo "${last_release}"
