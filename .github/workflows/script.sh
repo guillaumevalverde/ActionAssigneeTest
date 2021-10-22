@@ -14,7 +14,7 @@ API_HEADER="Accept: application/vnd.github.v3+json; application/vnd.github.antio
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
 getMilestone() {
-  milestones=`curl -sSL \
+  echo `curl -sSL \
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
@@ -25,7 +25,6 @@ getMilestone() {
 milestones=$(getMilestone)
 new_release=`echo "${milestones}" | jq '.[-1].title'`
 last_release=`echo "${milestones}" | jq '.[-2].title'`
-
 
 echo "new_release :"
 echo "${new_release}"
