@@ -29,16 +29,19 @@ jobs:
       # Runs a single command using the runners shell
       - name: Get milestones
         run: |
-           echo "Hello ${{ github.event.inputs.name }}"
-           echo "Hello ${{ secrets.PWD_GVE }}"
-           echo "Hello ${{ secrets.GVE }}"
-           echo "Hello ${{ github.event.inputs }}"
-           echo "${{ github.repository }}"
-           chmod +x ./.github/workflows/script.sh
-           ./.github/workflows/script.sh ${{ github.event.inputs.next_release }} ${{ secrets.GITHUB_TOKEN }}
+          echo "retrieve last 2 milestones"
+          chmod +x ./.github/workflows/getMilestone.sh
+          ./.github/workflows/script/getMilestones.sh  ${{ secrets.GITHUB_TOKEN }}
 
-      - name: second
-        run: |
-            chmod +x ./.github/workflows/script_second.sh
-            ./.github/workflows/script_second.sh $NEW_RELEASE
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.x
 
+      - name: Install Dependencies
+        run: gem install bundler && bundle install
+
+      - name: Run Fastlane Compile Lane
+        run: fastlane run move_jira_tickets_testing jira_api_token:${{ secrets.GVE }} jira_api_token:${{ secrets.PWD_GVE }} release_version_number:"2.12.15"
+
+        #fastlane android generate_new_release last_release_version:$LAST_RELEASE new_release_version:$NEW_RELEASE jira_username:${{ secrets.PWD_GVE }} jira_api_token:${{ secrets.PWD }} next_release_version:"2.12.15" github_api_token:${{ secrets.GITHUB_TOKEN }}
