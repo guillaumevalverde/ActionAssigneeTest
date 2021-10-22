@@ -29,5 +29,5 @@ jobs:
       - name: Send greeting
         run: |
            echo "Hello ${{ github.event.inputs.name }}" \
-           echo "Hello ${{ secret.PWD_GVE }}" \
-           echo "Hello ${{ secret.GVE }}"
+           echo "Hello ${{ secrets.PWD_GVE }}" \
+           echo "Hello ${{ secrets.GVE }}"
