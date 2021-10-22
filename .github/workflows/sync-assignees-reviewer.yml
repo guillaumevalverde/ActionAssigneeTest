@@ -1,13 +1,13 @@
 name: Assign reviewers based on assignees
 on:
   pull_request:
-    types: [assigned, unassigned]
+    types: [review_requested,review_request_removed]
 
 jobs:
   assignee_to_reviewer:
     runs-on: ubuntu-latest
     steps:
       - name: Assignee to Reviewer
-        uses: guillaumevalverde/assignee-to-reviewer-action@v1.0.7
+        uses: guillaumevalverde/assignee-to-reviewer-action@v1.0.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
