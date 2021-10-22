@@ -30,7 +30,7 @@ jobs:
       - name: Get milestones
         run: |
           echo "retrieve last 2 milestones"
-          chmod +x ./.github/workflows/getMilestone.sh
+          chmod +x ./.github/workflows/script/getMilestone.sh
           ./.github/workflows/script/getMilestones.sh  ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Ruby 2.7
