@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eu
+echo $1
 
+echo $2
 if [ $# -lt 2 ]
   then
     echo "Missing arguments.\nRequired arguments are [Next release]"
