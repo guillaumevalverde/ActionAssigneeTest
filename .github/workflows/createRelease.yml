@@ -34,5 +34,6 @@ jobs:
            echo "Hello ${{ secrets.GVE }}"
            echo "Hello ${{ github.event.inputs }}"
            echo "${{ github.repository }}"
-          .github/workflows/script.sh
+           chmod +x ./.github/workflows/script.sh
+           ./.github/workflows/script.sh
 
