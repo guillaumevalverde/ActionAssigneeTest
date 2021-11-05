@@ -33,15 +33,4 @@ jobs:
           chmod +x ./.github/workflows/script/getMilestones.sh
           ./.github/workflows/script/getMilestones.sh  ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Ruby 2.7
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.7.x
-
-      - name: Install Dependencies
-        run: sudo gem install bundler && bundle install
-
-      - name: Run Fastlane Compile Lane
-        run: bundle exec fastlane run move_jira_tickets_testing jira_api_token:${{ secrets.GVE }} jira_api_token:${{ secrets.PWD_GVE }} release_version_number:"2.12.15"
-
-        #fastlane android generate_new_release last_release_version:$LAST_RELEASE new_release_version:$NEW_RELEASE jira_username:${{ secrets.PWD_GVE }} jira_api_token:${{ secrets.PWD }} next_release_version:"2.12.15" github_api_token:${{ secrets.GITHUB_TOKEN }}
+     
