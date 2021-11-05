@@ -8,8 +8,8 @@ module Fastlane
       def self.run(params)
         release_version_number = params[:release_version_number]
         Actions.sh("git fetch origin main")
-        Actions.sh("git fetch origin release/release-#{release_version_number}")
-        diff_release_master = Actions.sh("git log --oneline origin/master..origin/release/release-#{release_version_number}")
+        Actions.sh("git fetch origin branch_test")
+        diff_release_master = Actions.sh("git log --oneline origin/main..origin/branch_test")
         is_empty_diff = diff_release_master.empty?
         Actions.lane_context[SharedValues::IS_MASTER_UP_TO_DATE_RESPONSE] = is_empty_diff
         return is_empty_diff
