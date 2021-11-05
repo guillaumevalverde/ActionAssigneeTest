@@ -7,7 +7,7 @@ module Fastlane
     class VerifyMasterUpToDateAction < Action
       def self.run(params)
         release_version_number = params[:release_version_number]
-        Actions.sh("git fetch origin master")
+        Actions.sh("git fetch origin main")
         Actions.sh("git fetch origin release/release-#{release_version_number}")
         diff_release_master = Actions.sh("git log --oneline origin/master..origin/release/release-#{release_version_number}")
         is_empty_diff = diff_release_master.empty?
