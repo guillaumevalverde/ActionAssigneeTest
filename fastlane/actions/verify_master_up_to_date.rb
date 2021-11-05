@@ -9,7 +9,7 @@ module Fastlane
         release_version_number = params[:release_version_number]
         Actions.sh("git fetch origin main")
         Actions.sh("git fetch origin branch_test")
-        diff_release_master = Actions.sh("git branch --contains branch_test")
+        diff_release_master = Actions.sh("git branch --contains \"branch_test\"")
         is_empty_diff = diff_release_master.include? "main"
         Actions.lane_context[SharedValues::IS_MASTER_UP_TO_DATE_RESPONSE] = is_empty_diff
         return is_empty_diff
