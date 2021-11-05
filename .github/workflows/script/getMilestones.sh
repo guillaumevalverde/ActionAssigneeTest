@@ -20,8 +20,8 @@ getMilestone() {
 }
 
 milestones=$(getMilestone)
-new_release=`echo "${milestones}" | jq '.[-1].title'`
-last_release=`echo "${milestones}" | jq '.[-2].title'`
+new_release=`echo "${milestones}" | jq -r '.[-1].title'`
+last_release=`echo "${milestones}" | jq -r '.[-2].title'`
 
 echo "new_release :"
 echo "${new_release}"
