@@ -1,0 +1,44 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:android)
+
+platform :android do
+
+
+  desc "Generate a new release by doing the following steps:
+  1. Verify that the last release is merged into master
+  2. Create release branch from master, pull strings from wti, update app version and push new release branch
+  3. Notify into slack that release branch has been created
+  4. Move JIRA tasks tagged with provided new release version from MERGED to TESTING
+  5. Check that tickets are in correct column
+  6. Creates a new milestone and updates all open PRs with the new release to the next release
+
+  Required parameters:
+  - last_release_version: Last release version number. Example '2.7.23'
+  - new_release_version: New release version number. Example '2.7.24'
+  - next_release_version: Next release version number. Example '2.7.25'
+  - jira_username: JIRA username. It's usually your email.
+  - jira_api_token: JIRA api token. See https://confluence.atlassian.com/cloud/api-tokens-938839638.html for creating an API token.
+  - github_api_token: Github api token. See https://github.com/settings/tokens to create an API token.
+  "
+  lane :generate_new_release do |options|
+    master_up_to_date = verify_master_up_to_date(
+      release_version_number: options[:last_release_version]
+    )
+    if !master_up_to_date
+      UI.user_error!("Master is not up to date with last release version #{options[:last_release_version]}")
+    end
+
+  end
+
+end
