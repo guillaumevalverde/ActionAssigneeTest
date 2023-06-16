@@ -2,6 +2,9 @@ name: Add label if needs a review.
 on:
   pull_request:
     types: [opened, edited, review_requested]
+  push:
+    branches:
+      - testing_label_action
 
 jobs:
   check_milestone:
