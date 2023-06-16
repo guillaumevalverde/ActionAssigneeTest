@@ -1,7 +1,7 @@
 name: Add label if needs a review.
 on:
   pull_request:
-    types: [opened, edited, review_requested]
+    types: [opened, edited, review_requested, review_request_removed]
 
 jobs:
   check_milestone:
