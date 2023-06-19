@@ -2,6 +2,10 @@ name: Add label if needs a review.
 on:
   pull_request:
     types: [opened, edited, review_requested, review_request_removed]
+    
+env:
+  MANDATORY_REVIEWER_NUMBER: 1
+  LABEL_FOR_REVIEWER_NEEDED: MY_REVIEW
 
 jobs:
   check_milestone:
